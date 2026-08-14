@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -9,231 +11,325 @@
                maximum-scale=1.0,
                user-scalable=no">
 
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color"
+      content="#00695c">
 
 <title>PTR & PTS Calculator</title>
 
+
 <style>
 
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 :root{
-    --primary:#2563eb;
-    --primary-dark:#1d4ed8;
-    --success:#059669;
-    --dark:#0f172a;
-    --muted:#64748b;
-    --border:#e2e8f0;
-    --bg:#f1f5f9;
+
+    --dark-teal:#00695c;
+    --dark-teal-2:#004d40;
+
+    --green:#008000;
+
+    --black:#000000;
+
+    --white:#ffffff;
+
+    --light:#f5f7f7;
+
+    --border:#d5dddd;
+
+    --muted:#555555;
+
 }
 
 *{
+
     box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
+
+    font-family:
+        Cambria,
+        "Times New Roman",
+        serif;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
 }
+
 
 body{
+
     margin:0;
+
     min-height:100vh;
-    font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    background:
-        radial-gradient(
-            circle at top left,
-            #dbeafe 0,
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at bottom right,
-            #ede9fe 0,
-            transparent 35%
-        ),
-        var(--bg);
-
-    color:var(--dark);
-}
-
-.app{
-    width:100%;
-    max-width:520px;
-    margin:auto;
-    padding:20px 16px 25px;
-}
-
-/* HEADER */
-
-.header{
-    text-align:center;
-    padding:8px 0 22px;
-}
-
-.logo{
-    width:62px;
-    height:62px;
-
-    margin:auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:20px;
 
     background:
         linear-gradient(
             135deg,
-            #2563eb,
-            #7c3aed
+            #eef4f3,
+            #ffffff
         );
 
-    color:white;
+    color:
+        var(--black);
 
-    font-size:27px;
-    font-weight:900;
+    font-size:12px;
+
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app{
+
+    width:100%;
+
+    max-width:520px;
+
+    margin:auto;
+
+    padding:
+        18px 16px 25px;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+
+    text-align:center;
+
+    padding:
+        5px 0 20px;
+
+}
+
+
+.logo{
+
+    width:60px;
+
+    height:60px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:
+        var(--dark-teal);
+
+    color:
+        var(--white);
+
+    font-size:26px;
+
+    font-weight:bold;
 
     box-shadow:
-        0 14px 30px
-        rgba(37,99,235,.28);
+        0 10px 22px
+        rgba(0,105,92,.25);
+
 }
+
 
 .header h1{
-    margin:14px 0 5px;
 
-    font-size:28px;
-    font-weight:850;
+    margin:
+        12px 0 4px;
 
-    letter-spacing:-.8px;
+    color:
+        var(--black);
+
+    font-size:25px;
+
+    font-weight:bold;
+
+    letter-spacing:
+        -.3px;
+
 }
+
 
 .header p{
+
     margin:0;
 
-    color:var(--muted);
+    color:
+        var(--black);
 
-    font-size:13px;
+    font-size:12px;
+
 }
 
-/* MAIN CARD */
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
 
 .card{
 
     background:
-        rgba(255,255,255,.95);
+        rgba(255,255,255,.98);
 
     border:
         1px solid
-        rgba(255,255,255,.8);
+        #e0e5e5;
 
-    border-radius:28px;
+    border-radius:22px;
 
-    padding:22px;
+    padding:20px;
 
     box-shadow:
-        0 20px 55px
-        rgba(15,23,42,.12);
+        0 12px 35px
+        rgba(0,0,0,.09);
 
-    backdrop-filter:blur(15px);
 }
 
-/* SECTION */
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
 
 .section-title{
 
+    color:
+        var(--black);
+
     font-size:12px;
 
-    font-weight:850;
-
-    color:var(--muted);
+    font-weight:bold;
 
     text-transform:uppercase;
 
-    letter-spacing:1px;
+    letter-spacing:.5px;
 
-    margin-bottom:15px;
+    margin-bottom:14px;
+
 }
 
-/* FIELD */
+
+/* =========================================================
+   FIELD
+========================================================= */
 
 .field{
-    margin-bottom:20px;
+
+    margin-bottom:19px;
+
 }
+
 
 label{
 
     display:block;
 
-    font-size:13px;
+    margin-bottom:7px;
 
-    font-weight:750;
+    color:
+        var(--black);
 
-    margin-bottom:8px;
+    font-size:12px;
+
+    font-weight:bold;
+
 }
+
+
+/* =========================================================
+   MRP INPUT
+========================================================= */
 
 .input-box{
+
     position:relative;
+
 }
+
 
 .currency{
 
     position:absolute;
 
-    left:16px;
+    left:15px;
 
     top:50%;
 
     transform:
         translateY(-50%);
 
-    color:var(--muted);
+    color:
+        var(--black);
 
-    font-size:17px;
+    font-size:15px;
 
-    font-weight:750;
+    font-weight:bold;
+
+    z-index:2;
+
 }
+
 
 input{
 
     width:100%;
 
-    height:56px;
+    height:52px;
 
     border:
-        1.5px solid
+        1px solid
         var(--border);
 
-    border-radius:16px;
+    border-radius:13px;
 
-    background:#fff;
+    background:
+        var(--white);
 
     padding:
-        0 16px 0 40px;
+        0 14px 0 36px;
 
-    font-size:18px;
+    color:
+        var(--black);
 
-    font-weight:700;
+    font-family:
+        Cambria,
+        "Times New Roman",
+        serif;
 
-    color:var(--dark);
+    font-size:12px;
+
+    font-weight:bold;
 
     outline:none;
 
-    transition:.2s;
 }
+
 
 input:focus{
 
     border-color:
-        var(--primary);
+        var(--dark-teal);
 
     box-shadow:
-        0 0 0 4px
-        rgba(37,99,235,.10);
+        0 0 0 3px
+        rgba(0,105,92,.10);
+
 }
 
-/* GST */
+
+/* =========================================================
+   GST BUTTONS
+========================================================= */
 
 .gst-grid{
 
@@ -243,205 +339,134 @@ input:focus{
         repeat(4,1fr);
 
     gap:8px;
+
 }
+
 
 .gst-btn{
 
-    height:46px;
+    height:44px;
 
     border:
-        1.5px solid
+        1px solid
         var(--border);
 
-    border-radius:13px;
+    border-radius:12px;
 
-    background:white;
+    background:
+        var(--white);
 
-    color:var(--dark);
+    color:
+        var(--green);
 
-    font-size:14px;
+    font-family:
+        Cambria,
+        "Times New Roman",
+        serif;
 
-    font-weight:800;
+    font-size:12px;
+
+    font-weight:bold;
 
     cursor:pointer;
 
-    transition:.15s;
+    transition:
+        .15s ease;
+
 }
+
 
 .gst-btn.active{
 
     background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            #4f46e5
-        );
+        var(--dark-teal);
 
-    color:white;
+    color:
+        var(--white);
 
     border-color:
-        var(--primary);
+        var(--dark-teal);
 
     box-shadow:
-        0 7px 15px
-        rgba(37,99,235,.20);
+        0 5px 12px
+        rgba(0,105,92,.20);
+
 }
 
-/* RESULTS */
+
+.gst-btn:active{
+
+    transform:
+        scale(.97);
+
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
 
 .results{
-    margin-top:24px;
+
+    margin-top:23px;
+
 }
 
-.result{
 
-    border-radius:19px;
+/* =========================================================
+   GST REMOVED
+========================================================= */
 
-    padding:18px;
+.gst-removed{
 
-    margin-bottom:11px;
+    background:
+        #fafafa;
 
-    border:1px solid
+    border:
+        1px solid
         var(--border);
 
-    background:#f8fafc;
+    border-radius:15px;
+
+    padding:
+        14px;
+
+    margin-bottom:10px;
+
 }
+
 
 .result-label{
 
-    font-size:11px;
-
-    font-weight:850;
-
-    color:var(--muted);
-
-    text-transform:uppercase;
-
-    letter-spacing:.8px;
-}
-
-.result-value{
-
-    margin-top:5px;
-
-    font-size:28px;
-
-    font-weight:900;
-
-    letter-spacing:-.7px;
-}
-
-.ptr{
-
-    background:
-        linear-gradient(
-            135deg,
-            #eff6ff,
-            #f8fafc
-        );
-
-    border-color:#bfdbfe;
-}
-
-.ptr .result-value{
-    color:var(--primary);
-}
-
-.pts{
-
-    background:
-        linear-gradient(
-            135deg,
-            #ecfdf5,
-            #f8fafc
-        );
-
-    border-color:#a7f3d0;
-}
-
-.pts .result-value{
-    color:var(--success);
-}
-
-/* DETAILS */
-
-.details{
-
-    margin-top:18px;
-
-    padding:17px;
-
-    border-radius:18px;
-
-    background:#f8fafc;
-
-    border:
-        1px dashed
-        #cbd5e1;
-}
-
-.details-title{
-
-    font-size:11px;
-
-    font-weight:850;
-
-    color:var(--muted);
-
-    text-transform:uppercase;
-
-    letter-spacing:.8px;
-
-    margin-bottom:9px;
-}
-
-.row{
-
-    display:flex;
-
-    justify-content:
-        space-between;
-
-    padding:7px 0;
-
-    font-size:13px;
-}
-
-.row span:last-child{
-    font-weight:750;
-}
-
-/* FORMULA */
-
-.formula{
-
-    margin-top:16px;
-
-    padding:15px;
-
-    border-radius:16px;
-
-    background:#0f172a;
-
-    color:#cbd5e1;
+    color:
+        var(--black);
 
     font-size:12px;
 
-    line-height:1.8;
+    font-weight:bold;
+
 }
 
-.formula-title{
 
-    color:white;
+.result-value{
 
-    font-weight:850;
+    margin-top:4px;
 
-    margin-bottom:5px;
+    color:
+        var(--black);
+
+    font-size:18px;
+
+    font-weight:bold;
+
 }
 
-/* BUTTONS */
 
-.actions{
+/* =========================================================
+   PTR & PTS SAME LINE
+========================================================= */
+
+.price-results{
 
     display:grid;
 
@@ -450,430 +475,749 @@ input:focus{
 
     gap:10px;
 
-    margin-top:18px;
+    margin-top:10px;
+
 }
 
-.action{
 
-    height:48px;
+.price-box{
 
-    border:none;
+    padding:
+        15px 10px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    background:
+        #f8fbfa;
+
+    border:
+        1px solid
+        var(--dark-teal);
+
+}
+
+
+/* =========================================================
+   PTR
+========================================================= */
+
+.ptr-box{
+
+    background:
+        #f2f9f7;
+
+}
+
+
+.ptr-box .price-heading{
+
+    color:
+        var(--black);
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+
+.ptr-box .price-value{
+
+    color:
+        var(--black);
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    margin-top:4px;
+
+}
+
+
+/* =========================================================
+   PTS
+========================================================= */
+
+.pts-box{
+
+    background:
+        #f6faf8;
+
+}
+
+
+.pts-box .price-heading{
+
+    color:
+        var(--black);
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+
+.pts-box .price-value{
+
+    color:
+        var(--black);
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    margin-top:4px;
+
+}
+
+
+/* =========================================================
+   CALCULATION DETAILS
+========================================================= */
+
+.details{
+
+    margin-top:16px;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:
+        #fafafa;
+
+    border:
+        1px solid
+        var(--border);
+
+}
+
+
+.details-title{
+
+    color:
+        var(--black);
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+}
+
+
+.row{
+
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    padding:
+        6px 0;
+
+    color:
+        var(--black);
+
+    font-size:12px;
+
+}
+
+
+.row span:last-child{
+
+    font-weight:bold;
+
+}
+
+
+/* =========================================================
+   FORMULA
+========================================================= */
+
+.formula{
+
+    margin-top:15px;
+
+    padding:14px;
 
     border-radius:14px;
 
-    font-size:14px;
+    background:
+        var(--dark-teal-2);
 
-    font-weight:800;
+    color:
+        var(--white);
+
+    font-size:12px;
+
+    line-height:1.7;
+
+}
+
+
+.formula-title{
+
+    color:
+        var(--white);
+
+    font-weight:bold;
+
+    margin-bottom:4px;
+
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.actions{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:9px;
+
+    margin-top:17px;
+
+}
+
+
+.action{
+
+    height:46px;
+
+    border:none;
+
+    border-radius:13px;
+
+    font-family:
+        Cambria,
+        "Times New Roman",
+        serif;
+
+    font-size:12px;
+
+    font-weight:bold;
 
     cursor:pointer;
+
 }
+
 
 .reset{
 
-    background:#e2e8f0;
+    background:
+        #e8eeee;
 
-    color:#334155;
+    color:
+        var(--black);
+
 }
+
 
 .share{
 
     background:
-        linear-gradient(
-            135deg,
-            #2563eb,
-            #4f46e5
-        );
+        var(--dark-teal);
 
-    color:white;
+    color:
+        var(--white);
 
-    box-shadow:
-        0 8px 18px
-        rgba(37,99,235,.20);
 }
 
-.action:active,
-.gst-btn:active{
 
-    transform:scale(.98);
+.action:active{
+
+    transform:
+        scale(.98);
+
 }
 
-/* FOOTER */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .footer{
 
     text-align:center;
 
-    color:var(--muted);
+    color:
+        var(--black);
 
     font-size:11px;
 
-    padding-top:18px;
+    padding-top:15px;
+
 }
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:360px){
 
     .card{
-        padding:18px;
+
+        padding:17px;
+
     }
+
 
     .header h1{
-        font-size:25px;
+
+        font-size:23px;
+
     }
 
-    .result-value{
-        font-size:25px;
+
+    .price-box{
+
+        padding:
+            13px 7px;
+
     }
+
+
+    .ptr-box .price-value,
+    .pts-box .price-value{
+
+        font-size:17px;
+
+    }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
 <div class="app">
 
-    <!-- HEADER -->
 
-    <div class="header">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-        <div class="logo">
-            P
-        </div>
+<div class="header">
 
-        <h1>
-            PTR & PTS Calculator
-        </h1>
-
-        <p>
-            Pharmaceutical Price Calculator
-        </p>
-
+    <div class="logo">
+        P
     </div>
 
-
-    <!-- CARD -->
-
-    <div class="card">
-
-        <div class="section-title">
-            Enter Price Details
-        </div>
-
-
-        <!-- MRP -->
-
-        <div class="field">
-
-            <label>
-                MRP
-            </label>
-
-            <div class="input-box">
-
-                <span class="currency">
-                    ₹
-                </span>
-
-                <input
-                    id="mrp"
-                    type="number"
-                    inputmode="decimal"
-                    placeholder="Enter MRP"
-                    min="0"
-                    step="0.01"
-                    oninput="calculate()"
-                >
-
-            </div>
-
-        </div>
-
-
-        <!-- GST -->
-
-        <div class="field">
-
-            <label>
-                GST Rate
-            </label>
-
-            <div class="gst-grid">
-
-                <button
-                    class="gst-btn"
-                    onclick="setGST(5,this)">
-                    5%
-                </button>
-
-                <button
-                    class="gst-btn"
-                    onclick="setGST(12,this)">
-                    12%
-                </button>
-
-                <button
-                    class="gst-btn active"
-                    onclick="setGST(18,this)">
-                    18%
-                </button>
-
-                <button
-                    class="gst-btn"
-                    onclick="setGST(28,this)">
-                    28%
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- RESULTS -->
-
-        <div class="results">
-
-            <div class="section-title">
-                Calculated Price
-            </div>
-
-
-            <!-- GST REMOVED -->
-
-            <div class="result">
-
-                <div class="result-label">
-                    GST Removed Price
-                </div>
-
-                <div
-                    class="result-value"
-                    id="gstRemoved">
-                    ₹0.00
-                </div>
-
-            </div>
-
-
-            <!-- PTR -->
-
-            <div class="result ptr">
-
-                <div class="result-label">
-                    PTR
-                </div>
-
-                <div
-                    class="result-value"
-                    id="ptr">
-                    ₹0.00
-                </div>
-
-            </div>
-
-
-            <!-- PTS -->
-
-            <div class="result pts">
-
-                <div class="result-label">
-                    PTS
-                </div>
-
-                <div
-                    class="result-value"
-                    id="pts">
-                    ₹0.00
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- CALCULATION DETAILS -->
-
-        <div class="details">
-
-            <div class="details-title">
-                Calculation Details
-            </div>
-
-            <div class="row">
-
-                <span>
-                    MRP
-                </span>
-
-                <span id="dMRP">
-                    ₹0.00
-                </span>
-
-            </div>
-
-            <div class="row">
-
-                <span>
-                    GST
-                </span>
-
-                <span id="dGST">
-                    18%
-                </span>
-
-            </div>
-
-            <div class="row">
-
-                <span>
-                    GST Removed
-                </span>
-
-                <span id="dGSTRemoved">
-                    ₹0.00
-                </span>
-
-            </div>
-
-            <div class="row">
-
-                <span>
-                    Less 20%
-                </span>
-
-                <span id="d20">
-                    ₹0.00
-                </span>
-
-            </div>
-
-            <div class="row">
-
-                <span>
-                    PTR
-                </span>
-
-                <span id="dPTR">
-                    ₹0.00
-                </span>
-
-            </div>
-
-            <div class="row">
-
-                <span>
-                    Less 10%
-                </span>
-
-                <span id="d10">
-                    ₹0.00
-                </span>
-
-            </div>
-
-            <div class="row">
-
-                <span>
-                    PTS
-                </span>
-
-                <span id="dPTS">
-                    ₹0.00
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- FORMULA -->
-
-        <div class="formula">
-
-            <div class="formula-title">
-                Calculation Formula
-            </div>
-
-            GST Removed =
-            MRP ÷ (1 + GST%)<br>
-
-            PTR =
-            GST Removed × 80%<br>
-
-            PTS =
-            PTR × 90%
-
-        </div>
-
-
-        <!-- ACTIONS -->
-
-        <div class="actions">
-
-            <button
-                class="action reset"
-                onclick="resetCalculator()">
-
-                Reset
-
-            </button>
-
-            <button
-                class="action share"
-                onclick="shareResult()">
-
-                Share Result
-
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer">
-
+    <h1>
         PTR & PTS Calculator
-        •
-        Premium Edition
+    </h1>
+
+    <p>
+        Pharmaceutical Price Calculator
+    </p>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN CARD
+===================================================== -->
+
+<div class="card">
+
+
+<div class="section-title">
+    Enter Price Details
+</div>
+
+
+
+<!-- =====================================================
+     MRP
+===================================================== -->
+
+<div class="field">
+
+    <label>
+        MRP
+    </label>
+
+    <div class="input-box">
+
+        <span class="currency">
+            ₹
+        </span>
+
+        <input
+            id="mrp"
+            type="number"
+            inputmode="decimal"
+            placeholder="Enter MRP"
+            min="0"
+            step="0.01"
+            oninput="calculate()"
+        >
 
     </div>
 
 </div>
 
 
+
+<!-- =====================================================
+     GST
+===================================================== -->
+
+<div class="field">
+
+    <label>
+        GST Rate
+    </label>
+
+    <div class="gst-grid">
+
+        <button
+            class="gst-btn"
+            onclick="setGST(5,this)">
+            5%
+        </button>
+
+        <button
+            class="gst-btn"
+            onclick="setGST(12,this)">
+            12%
+        </button>
+
+        <button
+            class="gst-btn active"
+            onclick="setGST(18,this)">
+            18%
+        </button>
+
+        <button
+            class="gst-btn"
+            onclick="setGST(28,this)">
+            28%
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     RESULTS
+===================================================== -->
+
+<div class="results">
+
+
+<div class="section-title">
+    Calculated Price
+</div>
+
+
+
+<!-- GST REMOVED -->
+
+<div class="gst-removed">
+
+    <div class="result-label">
+        GST Removed Price
+    </div>
+
+    <div
+        class="result-value"
+        id="gstRemoved">
+
+        ₹0.00
+
+    </div>
+
+</div>
+
+
+
+<!-- PTR & PTS -->
+
+<div class="price-results">
+
+
+<div class="price-box ptr-box">
+
+    <div class="price-heading">
+        PTR
+    </div>
+
+    <div
+        class="price-value"
+        id="ptr">
+
+        ₹0.00
+
+    </div>
+
+</div>
+
+
+
+<div class="price-box pts-box">
+
+    <div class="price-heading">
+        PTS
+    </div>
+
+    <div
+        class="price-value"
+        id="pts">
+
+        ₹0.00
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DETAILS
+===================================================== -->
+
+<div class="details">
+
+
+<div class="details-title">
+    Calculation Details
+</div>
+
+
+<div class="row">
+
+    <span>
+        MRP
+    </span>
+
+    <span id="dMRP">
+        ₹0.00
+    </span>
+
+</div>
+
+
+<div class="row">
+
+    <span>
+        GST
+    </span>
+
+    <span id="dGST">
+        18%
+    </span>
+
+</div>
+
+
+<div class="row">
+
+    <span>
+        GST Removed
+    </span>
+
+    <span id="dGSTRemoved">
+        ₹0.00
+    </span>
+
+</div>
+
+
+<div class="row">
+
+    <span>
+        Less 20%
+    </span>
+
+    <span id="d20">
+        ₹0.00
+    </span>
+
+</div>
+
+
+<div class="row">
+
+    <span>
+        PTR
+    </span>
+
+    <span id="dPTR">
+        ₹0.00
+    </span>
+
+</div>
+
+
+<div class="row">
+
+    <span>
+        Less 10%
+    </span>
+
+    <span id="d10">
+        ₹0.00
+    </span>
+
+</div>
+
+
+<div class="row">
+
+    <span>
+        PTS
+    </span>
+
+    <span id="dPTS">
+        ₹0.00
+    </span>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FORMULA
+===================================================== -->
+
+<div class="formula">
+
+    <div class="formula-title">
+        Calculation Formula
+    </div>
+
+    GST Removed =
+    MRP ÷ (1 + GST%)<br>
+
+    PTR =
+    GST Removed × 80%<br>
+
+    PTS =
+    PTR × 90%
+
+</div>
+
+
+
+<!-- =====================================================
+     BUTTONS
+===================================================== -->
+
+<div class="actions">
+
+
+<button
+    class="action reset"
+    onclick="resetCalculator()">
+
+    Reset
+
+</button>
+
+
+<button
+    class="action share"
+    onclick="shareResult()">
+
+    Share Result
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="footer">
+
+    PTR & PTS Calculator
+
+</div>
+
+
+</div>
+
+
+
 <script>
+
+
+/* =========================================================
+   GST
+========================================================= */
 
 let gstRate = 18;
 
 
-/* =========================
+
+/* =========================================================
    GST SELECTION
-========================= */
+========================================================= */
 
 function setGST(rate, button){
 
     gstRate = rate;
 
+
     document
         .querySelectorAll(".gst-btn")
-        .forEach(btn => {
+        .forEach(function(btn){
 
-            btn.classList.remove("active");
+            btn.classList.remove(
+                "active"
+            );
 
         });
 
-    button.classList.add("active");
+
+    button.classList.add(
+        "active"
+    );
+
 
     calculate();
+
 }
 
 
-/* =========================
+
+/* =========================================================
    CALCULATION
-========================= */
+========================================================= */
 
 function calculate(){
+
 
     const mrp =
         parseFloat(
@@ -883,9 +1227,10 @@ function calculate(){
         ) || 0;
 
 
+
     /*
        STEP 1
-       Remove GST from MRP
+       REMOVE GST
     */
 
     const gstRemoved =
@@ -893,27 +1238,32 @@ function calculate(){
         (1 + gstRate / 100);
 
 
+
     /*
        STEP 2
-       Less 20%
+       LESS 20%
+       PTR
     */
 
     const ptr =
         gstRemoved * 0.80;
 
 
+
     /*
        STEP 3
-       Less 10% from PTR
+       LESS 10%
+       PTS
     */
 
     const pts =
         ptr * 0.90;
 
 
-    /* =====================
-       DISPLAY RESULTS
-    ===================== */
+
+    /* =====================================================
+       MAIN RESULTS
+    ===================================================== */
 
     document
         .getElementById("gstRemoved")
@@ -933,9 +1283,10 @@ function calculate(){
         money(pts);
 
 
-    /* =====================
+
+    /* =====================================================
        DETAILS
-    ===================== */
+    ===================================================== */
 
     document
         .getElementById("dMRP")
@@ -985,17 +1336,20 @@ function calculate(){
 }
 
 
-/* =========================
-   CURRENCY FORMAT
-========================= */
+
+/* =========================================================
+   MONEY FORMAT
+========================================================= */
 
 function money(value){
 
     return "₹" +
+
         value.toLocaleString(
             "en-IN",
             {
                 minimumFractionDigits:2,
+
                 maximumFractionDigits:2
             }
         );
@@ -1003,11 +1357,13 @@ function money(value){
 }
 
 
-/* =========================
+
+/* =========================================================
    RESET
-========================= */
+========================================================= */
 
 function resetCalculator(){
+
 
     document
         .getElementById("mrp")
@@ -1019,7 +1375,7 @@ function resetCalculator(){
 
     document
         .querySelectorAll(".gst-btn")
-        .forEach(btn => {
+        .forEach(function(btn){
 
             btn.classList.remove(
                 "active"
@@ -1030,7 +1386,9 @@ function resetCalculator(){
 
     document
         .querySelectorAll(".gst-btn")[2]
-        .classList.add("active");
+        .classList.add(
+            "active"
+        );
 
 
     calculate();
@@ -1038,11 +1396,13 @@ function resetCalculator(){
 }
 
 
-/* =========================
+
+/* =========================================================
    SHARE
-========================= */
+========================================================= */
 
 async function shareResult(){
+
 
     const mrp =
         parseFloat(
@@ -1076,6 +1436,7 @@ async function shareResult(){
 
 
     const text =
+
         "PTR & PTS Calculation\n\n" +
 
         "MRP: " +
@@ -1092,6 +1453,7 @@ async function shareResult(){
         pts;
 
 
+
     if(
         navigator.share
     ){
@@ -1103,14 +1465,21 @@ async function shareResult(){
                 title:
                     "PTR & PTS Calculator",
 
-                text:text
+                text:
+                    text
 
             });
 
         }
-        catch(e){}
+
+        catch(error){
+
+            /* User cancelled share */
+
+        }
 
     }
+
     else{
 
         try{
@@ -1119,12 +1488,14 @@ async function shareResult(){
                 .clipboard
                 .writeText(text);
 
+
             alert(
                 "Calculation copied."
             );
 
         }
-        catch(e){
+
+        catch(error){
 
             alert(text);
 
@@ -1135,13 +1506,16 @@ async function shareResult(){
 }
 
 
-/* =========================
-   INITIAL CALCULATION
-========================= */
+
+/* =========================================================
+   INITIAL
+========================================================= */
 
 calculate();
 
 </script>
 
+
 </body>
+
 </html>
