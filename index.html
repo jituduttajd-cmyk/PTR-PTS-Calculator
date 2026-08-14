@@ -112,9 +112,9 @@ body{
 
 .logo{
 
-    width:120px;
+    width:150px;
 
-    height:59px;
+    height:55px;
 
     margin:auto;
 
@@ -132,7 +132,7 @@ body{
     color:
         var(--white);
 
-    font-size:26px;
+    font-size:20px;
 
     font-weight:bold;
 
@@ -816,7 +816,7 @@ input:focus{
 <div class="header">
 
     <div class="logo">
-        MARGIN
+        TRADE-MARGIN
     </div>
 
     <h1>
@@ -889,6 +889,10 @@ input:focus{
     <div class="gst-grid">
 
         <button
+              class="gst-btn"
+            onclick="setGST(0,this)">
+            0%
+        </button>
             class="gst-btn"
             onclick="setGST(5,this)">
             5%
